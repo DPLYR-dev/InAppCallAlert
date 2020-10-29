@@ -64,10 +64,13 @@ class CallAlert extends StatelessWidget {
                             Container(
                               child: Icon(
                                 Icons.volume_mute,
+                                color: Colors.white,
                               ),
                             ),
                             Container(
-                              child: Icon(Icons.call),
+                              child: Icon(Icons.call,
+                              color: Colors.white,),
+
                             ),
                           ],
                         ),
