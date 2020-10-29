@@ -62,15 +62,26 @@ class CallAlert extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle
+                              ),
                               child: Icon(
                                 Icons.volume_mute,
                                 color: Colors.white,
                               ),
                             ),
                             Container(
-                              child: Icon(Icons.call,
-                              color: Colors.white,),
-
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle
+                              ),
+                              child: Icon(
+                                Icons.call,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         ),
