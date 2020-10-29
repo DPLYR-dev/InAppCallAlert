@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 /// A Call Alert.
 class CallAlert extends StatelessWidget {
   final String callerName;
-  CallAlert({@required this.callerName});
+  final ImageProvider callerImage;
+  final TextStyle callerNameStyle;
+  CallAlert({@required this.callerName,this.callerImage,this.callerNameStyle});
+
 
   @override
   Widget build(BuildContext context) {
