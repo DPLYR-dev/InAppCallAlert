@@ -7,8 +7,8 @@ class CallAlert extends StatelessWidget {
   final String callerName;
   final ImageProvider callerImage;
   final TextStyle callerNameStyle;
-  CallAlert({@required this.callerName,this.callerImage,this.callerNameStyle});
-
+  CallAlert(
+      {@required this.callerName, this.callerImage, this.callerNameStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,12 @@ class CallAlert extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
                     callerName,
-                    style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w500),
+                    style: callerNameStyle == null
+                        ? TextStyle(
+                            fontSize: 22,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w500)
+                        : callerNameStyle,
                   ),
                 ),
               ],
@@ -103,16 +105,17 @@ class CallAlert extends StatelessWidget {
                       children: [
                         Text(
                           "Mute",
-
                           style: TextStyle(
-                            fontSize: 16,
-                              color: Colors.blue, fontWeight: FontWeight.w500),
+                              fontSize: 16,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "Agree",
                           style: TextStyle(
-                            fontSize: 16,
-                              color: Colors.blue, fontWeight: FontWeight.w500),
+                              fontSize: 16,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500),
                         )
                       ],
                     ),
