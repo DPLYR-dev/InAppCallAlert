@@ -17,24 +17,34 @@ class CallAlert extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // Caller Image/Icon
-            CircleAvatar(
-              radius: 50,
-              child: Icon(
-                Icons.person,
-                size: 40,
-              ),
+            Column(
+              children: [
+                // Caller Image/Icon
+                CircleAvatar(
+                  radius: 50,
+                  child: Icon(
+                    Icons.person,
+                    size: 40,
+                  ),
+                ),
+
+                // Caller Name
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(callerName),
+                ),
+              ],
             ),
-
-            // Caller Name
-            Text(callerName),
-
+            SizedBox(
+              height: 75,
+            ),
             // Mute or Agree
             Column(
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue, borderRadius: BorderRadius.circular(60)),
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(60)),
                   padding: EdgeInsets.all(5),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -60,19 +70,19 @@ class CallAlert extends StatelessWidget {
                   height: 60,
                   width: MediaQuery.of(context).size.width / 1.5,
                 ),
-            Container(
-              width: MediaQuery.of(context).size.width / 1.5,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical:6.0,horizontal: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Mute"), Text("Agree")],
-                ),
-              ),
-            )
+                Container(
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 6.0, horizontal: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [Text("Mute"), Text("Agree")],
+                    ),
+                  ),
+                )
               ],
             ),
-
           ],
         ),
       ),
