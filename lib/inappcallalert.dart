@@ -25,13 +25,20 @@ class CallAlert extends StatelessWidget {
                   child: Icon(
                     Icons.person,
                     size: 40,
+                    color: Colors.white,
                   ),
+                    backgroundColor: Colors.blue,
                 ),
 
                 // Caller Name
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text(callerName),
+                  child: Text(callerName,
+                  style: TextStyle(
+                    fontSize: 22,
+                    color:Colors.blue,
+                    fontWeight: FontWeight.w500
+                  ),),
                 ),
               ],
             ),
