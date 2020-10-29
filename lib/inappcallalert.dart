@@ -27,18 +27,19 @@ class CallAlert extends StatelessWidget {
                     size: 40,
                     color: Colors.white,
                   ),
-                    backgroundColor: Colors.blue,
+                  backgroundColor: Colors.blue,
                 ),
 
                 // Caller Name
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text(callerName,
-                  style: TextStyle(
-                    fontSize: 22,
-                    color:Colors.blue,
-                    fontWeight: FontWeight.w500
-                  ),),
+                  child: Text(
+                    callerName,
+                    style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
               ],
             ),
@@ -64,23 +65,21 @@ class CallAlert extends StatelessWidget {
                             Container(
                               padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle
+                                color: Colors.white,
+                                shape: BoxShape.circle,
                               ),
                               child: Icon(
-                                Icons.volume_mute,
-                                color: Colors.white,
+                                Icons.volume_off,
+                                color: Colors.red,
                               ),
                             ),
                             Container(
                               padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle
-                              ),
+                                  color: Colors.white, shape: BoxShape.circle),
                               child: Icon(
                                 Icons.call,
-                                color: Colors.white,
+                                color: Colors.green,
                               ),
                             ),
                           ],
