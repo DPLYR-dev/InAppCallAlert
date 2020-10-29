@@ -7,9 +7,15 @@ class CallAlert extends StatelessWidget {
   final String callerName;
   final ImageProvider callerImage;
   final TextStyle callerNameStyle;
+  final primaryColor;
+  final backgroundColor;
   CallAlert(
-      {@required this.callerName, this.callerImage, this.callerNameStyle});
+      {@required this.callerName,
+      this.callerImage,
+      this.callerNameStyle,
+      this.primaryColor});
 
+  Color get mainColor => (primaryColor == null ? Colors.blue : primaryColor);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,7 @@ class CallAlert extends StatelessWidget {
                     size: 45,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: mainColor,
                 ),
 
                 // Caller Name
@@ -41,7 +47,7 @@ class CallAlert extends StatelessWidget {
                     style: callerNameStyle == null
                         ? TextStyle(
                             fontSize: 22,
-                            color: Colors.blue,
+                            color: mainColor,
                             fontWeight: FontWeight.w500)
                         : callerNameStyle,
                   ),
@@ -56,7 +62,7 @@ class CallAlert extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: mainColor,
                       borderRadius: BorderRadius.circular(60)),
                   padding: EdgeInsets.all(5),
                   child: Padding(
@@ -107,14 +113,14 @@ class CallAlert extends StatelessWidget {
                           "Mute",
                           style: TextStyle(
                               fontSize: 16,
-                              color: Colors.blue,
+                              color: mainColor,
                               fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "Agree",
                           style: TextStyle(
                               fontSize: 16,
-                              color: Colors.blue,
+                              color: mainColor,
                               fontWeight: FontWeight.w500),
                         )
                       ],
