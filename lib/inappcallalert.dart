@@ -24,7 +24,7 @@ class CallAlert extends StatelessWidget {
                   radius: 50,
                   child: Icon(
                     Icons.person,
-                    size: 40,
+                    size: 45,
                     color: Colors.white,
                   ),
                   backgroundColor: Colors.blue,
@@ -94,10 +94,24 @@ class CallAlert extends StatelessWidget {
                   width: MediaQuery.of(context).size.width / 1.5,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 6.0, horizontal: 12),
+                        vertical: 6.0, horizontal: 14),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text("Mute"), Text("Agree")],
+                      children: [
+                        Text(
+                          "Mute",
+
+                          style: TextStyle(
+                            fontSize: 16,
+                              color: Colors.blue, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          "Agree",
+                          style: TextStyle(
+                            fontSize: 16,
+                              color: Colors.blue, fontWeight: FontWeight.w500),
+                        )
+                      ],
                     ),
                   ),
                 )
