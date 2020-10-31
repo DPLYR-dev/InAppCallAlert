@@ -1,4 +1,4 @@
-# inappcallalert
+# in_app_call_alert
 
 A new Flutter package to show an alert screen.
 
