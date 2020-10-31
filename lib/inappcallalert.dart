@@ -144,13 +144,19 @@ class _CallAlertState extends State<CallAlert> {
                                 ),
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  color: Colors.white, shape: BoxShape.circle),
-                              child: Icon(
-                                Icons.call,
-                                color: Colors.green,
+                            InkWell(
+                              onTap: ()async{
+                                
+                                widget.onAgree ?? Navigator.pop(context);
+                              },
+                                                          child: Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                    color: Colors.white, shape: BoxShape.circle),
+                                child: Icon(
+                                  Icons.call,
+                                  color: Colors.green,
+                                ),
                               ),
                             ),
                           ],
