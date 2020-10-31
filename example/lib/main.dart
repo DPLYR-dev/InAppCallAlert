@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:in_app_call_alert/inappcallalert.dart';
+import 'package:in_app_call_alert/in_app_call_alert.dart';
 
 void main() {
   runApp(MyApp());
