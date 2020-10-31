@@ -44,6 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context)=> CallAlert(callerName: 'Karim Mohamed',
                   ringtonePath: 'ringtone.mp3',
+                  onAgree: (){
+                    Navigator.pop(context);
+                    print('Working!');
+                  },
                   )
                 ));
               },
