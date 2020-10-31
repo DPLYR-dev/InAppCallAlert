@@ -147,7 +147,7 @@ class _CallAlertState extends State<CallAlert> {
                             InkWell(
                               onTap: ()async{
                                 
-                                widget.onAgree ?? Navigator.pop(context);
+                                widget.onAgree == null ? Navigator.pop(context) : widget.onAgree();
                               },
                                                           child: Container(
                                 padding: EdgeInsets.all(8),
