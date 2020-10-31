@@ -1,5 +1,6 @@
 library inappcallalert;
 
+import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
@@ -11,30 +12,53 @@ class CallAlert extends StatefulWidget {
   final TextStyle callerNameStyle;
   final primaryColor;
   final backgroundColor;
+  final Function onAgree;
+  final muted;
   CallAlert(
       {@required this.callerName,
       @required this.ringtonePath,
       this.callerImage,
       this.callerNameStyle,
       this.primaryColor = Colors.blue,
-      this.backgroundColor = Colors.white});
+      this.backgroundColor = Colors.white,
+      this.onAgree,
+      this.muted = false});
 
   @override
   _CallAlertState createState() => _CallAlertState();
 }
 
 class _CallAlertState extends State<CallAlert> {
+  AudioCache audioCache = AudioCache(prefix: 'audio/');
   AudioPlayer audioPlayer = AudioPlayer();
 
+  bool muted = false;
   _playLocal() async {
-    await audioPlayer.play(widget.ringtonePath, isLocal: true);
+    audioPlayer = await audioCache.loop(widget.ringtonePath,);
+  
+    setState(() {});
+    if (widget.muted == true) {
+      setState(() {
+        muted = true;
+      });
+      _muteAudio();
+    }
   }
+
   @override
   void initState() {
     super.initState();
     _playLocal();
   }
-
+  
+  _muteAudio() async {
+    await audioPlayer.setVolume(0.0);
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    audioPlayer?.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,15 +116,32 @@ class _CallAlertState extends State<CallAlert> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Icon(
-                                Icons.volume_off,
-                                color: Colors.red,
+                            InkWell(
+                              onTap: () async {
+                                if (muted == true) {
+                                  await audioPlayer.setVolume(1);
+                                  setState(() {
+                                    muted = false;
+                                  });
+                                } else {
+                                  setState(() {
+                                    muted = true;
+                                  });
+                                  _muteAudio();
+                                }
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  muted == true
+                                      ? Icons.volume_up
+                                      : Icons.volume_off,
+                                  color: Colors.red,
+                                ),
                               ),
                             ),
                             Container(
@@ -129,7 +170,7 @@ class _CallAlertState extends State<CallAlert> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Mute",
+                        muted == true ?  "Unmute" : "Mute",
                           style: TextStyle(
                               fontSize: 16,
                               color: widget.primaryColor,
