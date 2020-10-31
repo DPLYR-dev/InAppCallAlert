@@ -1,25 +1,44 @@
 library inappcallalert;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 /// A Call Alert.
-class CallAlert extends StatelessWidget {
+class CallAlert extends StatefulWidget {
   final String callerName;
+  final String ringtonePath;
   final ImageProvider callerImage;
   final TextStyle callerNameStyle;
   final primaryColor;
   final backgroundColor;
   CallAlert(
       {@required this.callerName,
+      @required this.ringtonePath,
       this.callerImage,
       this.callerNameStyle,
       this.primaryColor = Colors.blue,
       this.backgroundColor = Colors.white});
 
   @override
+  _CallAlertState createState() => _CallAlertState();
+}
+
+class _CallAlertState extends State<CallAlert> {
+  AudioPlayer audioPlayer = AudioPlayer();
+
+  _playLocal() async {
+    await audioPlayer.play(widget.ringtonePath, isLocal: true);
+  }
+  @override
+  void initState() {
+    super.initState();
+    _playLocal();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: widget.backgroundColor,
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -36,20 +55,20 @@ class CallAlert extends StatelessWidget {
                     size: 45,
                     color: Colors.white,
                   ),
-                  backgroundColor: primaryColor,
+                  backgroundColor: widget.primaryColor,
                 ),
 
                 // Caller Name
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    callerName,
-                    style: callerNameStyle == null
+                    widget.callerName,
+                    style: widget.callerNameStyle == null
                         ? TextStyle(
                             fontSize: 22,
-                            color: primaryColor,
+                            color: widget.primaryColor,
                             fontWeight: FontWeight.w500)
-                        : callerNameStyle,
+                        : widget.callerNameStyle,
                   ),
                 ),
               ],
@@ -62,7 +81,7 @@ class CallAlert extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: primaryColor,
+                      color: widget.primaryColor,
                       borderRadius: BorderRadius.circular(60)),
                   padding: EdgeInsets.all(5),
                   child: Padding(
@@ -113,14 +132,14 @@ class CallAlert extends StatelessWidget {
                           "Mute",
                           style: TextStyle(
                               fontSize: 16,
-                              color: primaryColor,
+                              color: widget.primaryColor,
                               fontWeight: FontWeight.w500),
                         ),
                         Text(
                           "Agree",
                           style: TextStyle(
                               fontSize: 16,
-                              color: primaryColor,
+                              color: widget.primaryColor,
                               fontWeight: FontWeight.w500),
                         )
                       ],

@@ -42,7 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> CallAlert(callerName: 'Karim Mohamed')
+                  builder: (context)=> CallAlert(callerName: 'Karim Mohamed',
+                  ringtonePath: 'audio/ringtone.mp3',)
                 ));
               },
               child: Text(
