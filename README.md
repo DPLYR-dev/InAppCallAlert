@@ -3,10 +3,9 @@
 A new Flutter package to show an alert screen.
 
 ## Screenshots
-<div>
-<img src="https://github.com/KarimMohamed20/InAppCallAlert/blob/master/screenshot1.png" alt="example" width="250"/>
-<img src="https://github.com/KarimMohamed20/InAppCallAlert/blob/master/screenshot2.png" alt="package" width="250"/>
-</div>
+![screenshot description (alt)](screenshot1.png)
+![screenshot description (alt)](screenshot2.png)
+
 
 ## Usage
 
