@@ -5,3 +5,7 @@
 ## [0.0.2] - 4, Nov, 2020
 
 * Update README.md
+
+## [0.0.3] - 4, Nov, 2020
+* Dart Format
+* Fix photos README.md
