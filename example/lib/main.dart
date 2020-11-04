@@ -38,18 +38,19 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
             RaisedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=> CallAlert(callerName: 'Karim Mohamed',
-                  ringtonePath: 'ringtone.mp3',
-                  onAgree: (){
-                    Navigator.pop(context);
-                    print('Working!');
-                  },
-                  )
-                ));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CallAlert(
+                              callerName: 'Karim Mohamed',
+                              ringtonePath: 'ringtone.mp3',
+                              onAgree: () {
+                                Navigator.pop(context);
+                                print('Working!');
+                              },
+                            )));
               },
               child: Text(
                 "Receive Call",

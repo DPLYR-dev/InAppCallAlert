@@ -34,8 +34,10 @@ class _CallAlertState extends State<CallAlert> {
 
   bool muted = false;
   _playLocal() async {
-    audioPlayer = await audioCache.loop(widget.ringtonePath,);
-  
+    audioPlayer = await audioCache.loop(
+      widget.ringtonePath,
+    );
+
     setState(() {});
     if (widget.muted == true) {
       setState(() {
@@ -50,15 +52,17 @@ class _CallAlertState extends State<CallAlert> {
     super.initState();
     _playLocal();
   }
-  
+
   _muteAudio() async {
     await audioPlayer.setVolume(0.0);
   }
+
   @override
   void dispose() {
     super.dispose();
     audioPlayer?.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,14 +149,16 @@ class _CallAlertState extends State<CallAlert> {
                               ),
                             ),
                             InkWell(
-                              onTap: ()async{
-                                
-                                widget.onAgree == null ? Navigator.pop(context) : widget.onAgree();
+                              onTap: () async {
+                                widget.onAgree == null
+                                    ? Navigator.pop(context)
+                                    : widget.onAgree();
                               },
-                                                          child: Container(
+                              child: Container(
                                 padding: EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                    color: Colors.white, shape: BoxShape.circle),
+                                    color: Colors.white,
+                                    shape: BoxShape.circle),
                                 child: Icon(
                                   Icons.call,
                                   color: Colors.green,
@@ -176,7 +182,7 @@ class _CallAlertState extends State<CallAlert> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                        muted == true ?  "Unmute" : "Mute",
+                          muted == true ? "Unmute" : "Mute",
                           style: TextStyle(
                               fontSize: 16,
                               color: widget.primaryColor,
